@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "ESNext",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "removeComments": false,
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "jsx": "react"
+    }
+  }
+  
