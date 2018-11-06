@@ -35,7 +35,7 @@ module.exports = merge(baseWebpackConfig, {
         new BrowserSyncPlugin({
             host: '127.0.0.1',
             port: 9090,
-            proxy: 'http://127.0.0.1:3336/',
+            proxy: 'http://127.0.0.1:3336/view/',
             logConnections: false,
             notify: false
         }, {
