@@ -36,7 +36,9 @@ module.exports = {
         alias: {
             "components": path.resolve(__dirname, "../src/components"),
             "utils": path.resolve(__dirname, "../src/utils"),
-            "pages": path.resolve(__dirname, "../src/pages")
+            "pages": path.resolve(__dirname, "../src/pages"),
+            "consts": path.resolve(__dirname, "../src/consts"),
+            "images": path.resolve(__dirname, "../src/images")
         }
     },
     module: {
@@ -55,7 +57,9 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 use: [{
                     loader: 'file-loader',
-                    options: {}
+                    options: {
+                        limit: '1024'
+                    }
                 }]
             },
             {
