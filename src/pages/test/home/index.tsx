@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Ant } from "components/Ant"
+import { Button } from "antd"
 import axios from 'utils/axios'
+import { downloadImage } from 'utils/utils'
 // const testImg = require('images/erwei.jpg')
 const testImg = 'https://static.mobike.com/wx/distribution-banner-normal-3ae3892650.png'
 
@@ -11,7 +13,7 @@ export interface AntProps {
 
 export class _Home extends React.Component<AntProps, {}> {
   componentDidMount() {
-    return axios.post('/login.do', {}).then((res:Object) => {
+    axios.post('/login.do', {}).then((res: Object) => {
         console.log(res)
     });
   }
@@ -19,9 +21,15 @@ export class _Home extends React.Component<AntProps, {}> {
     return (
       <div>
         <Ant name="home" company="mobike" />
-        <a href={testImg} download="img" >下载图片</a>
+        {/* <div>
+          <a href={testImg} download="img" >下载图片</a>
+        </div> */}
+        <Button type="primary" icon="download" onClick={this.download}>Download</Button>
       </div>
     )
+  }
+  download() {
+    downloadImage(testImg, 'testImg');
   }
 }
 
