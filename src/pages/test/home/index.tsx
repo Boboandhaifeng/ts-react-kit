@@ -16,6 +16,7 @@ export class _Home extends React.Component<AntProps, {}> {
     axios.post('/login.do', {}).then((res: Object) => {
         console.log(res)
     });
+    this.watchStorage()
   }
   render() {
     return (
@@ -25,11 +26,21 @@ export class _Home extends React.Component<AntProps, {}> {
           <a href={testImg} download="img" >下载图片</a>
         </div> */}
         <Button type="primary" icon="download" onClick={this.download}>Download</Button>
+        <Button type="primary" onClick={this.updateStorage}>updateStorage</Button>
       </div>
     )
   }
   download() {
     downloadImage(testImg, 'testImg');
+  }
+  watchStorage() {
+    window.addEventListener("storage", function (e) {
+      console.log(e)
+      console.log(e.newValue)
+    })
+  }
+  updateStorage() {
+    localStorage.setItem('aaa', (Math.random()*10).toString())
   }
 }
 
