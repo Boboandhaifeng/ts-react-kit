@@ -27,6 +27,7 @@ export class _Home extends React.Component<AntProps, {}> {
         </div> */}
         <Button type="primary" icon="download" onClick={this.download}>Download</Button>
         <Button type="primary" onClick={this.updateStorage}>updateStorage</Button>
+        <a href='/api/download' >下载图片</a>
       </div>
     )
   }

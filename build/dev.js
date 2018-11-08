@@ -21,7 +21,16 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
-
+app.get('/api/download/', (req, res, next) => {//以文件流的形式下载文件
+    var filePath = path.join(__dirname, '../src/images/erwei.jpg');
+    var stats = fs.statSync(filePath);
+    res.set({
+        'Content-Type': 'application/octet-stream', //告诉浏览器这是一个二进制文件
+        'Content-Disposition': 'attachment; filename=111.png', //告诉浏览器这是一个需要下载的文件
+        'Content-Length': stats.size  //文件大小
+    });
+    fs.createReadStream(filePath).pipe(res);
+});
 app.use('/view', (req, res, next) => {
     const filename = path.resolve(compiler.outputPath, 'index.html');
     compiler.outputFileSystem.readFile(filename, (err, result) => {
