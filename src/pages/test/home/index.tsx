@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Ant } from "components/Ant"
-import { FootBar } from "components/FootBar/index.tsx"
 import { Button } from "antd"
 import axios from 'utils/axios'
 import { downloadImage } from 'utils/utils'
@@ -28,7 +27,6 @@ export class _Home extends React.Component<AntProps, {}> {
     return (
       <div>
         <Ant name="home" company="mobike" />
-        <FootBar info={info} wxClickCb={() => {}} phoneClickCb={() => {}} />
         {/* <div>
           <a href={testImg} download="img" >下载图片</a>
         </div> */}
